@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>اغرو فليدا - صيدلية زراعية - ادلب الدانا</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(135deg, #1b3a0e, #61964b);
+    color: #f0f5e9;
+    line-height: 1.6;
+    direction: rtl;
+    scroll-behavior: smooth;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  a {
+    text-decoration: none;
+    color: #f0f5e9;
+  }
+
+  /* Hamburger menu button */
+  #menu-toggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(58, 108, 11, 0.85);
+    border: none;
+    border-radius: 6px;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 8px;
+    box-shadow: 0 3px 8px rgba(38, 59, 12, 0.8);
+    transition: background-color 0.3s ease;
+  }
+
+  #menu-toggle:hover,
+  #menu-toggle:focus {
+    background: #8cbf39;
+    outline: none;
+  }
+
+  #menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: #d6f5b0;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+
+  /* Animate hamburger to cross when active */
+  #menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+  #menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  #menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+  }
+
+  /* Sidebar drawer */
+  nav.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 240px;
+    background: rgba(39, 78, 19, 0.95);
+    color: #d4f0b1;
+    padding-top: 3.5rem;
+    box-shadow: -5px 0px 18px rgba(0,0,0,0.5);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 150;
+    font-weight: 700;
+  }
+
+  nav.sidebar.open {
+    transform: translateX(0);
+  }
+
+  nav.sidebar h2 {
+    text-align: center;
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+    letter-spacing: 1.5px;
+    user-select: none;
+    text-shadow: 0 0 6px rgba(221,247,170,0.8);
+  }
+
+  nav.sidebar ul {
+    list-style: none;
+    padding: 0 1.5rem;
+  }
+
+  nav.sidebar ul li {
+    margin-bottom: 1.8rem;
+  }
+
+  nav.sidebar ul li a {
+    color: #c6e083;
+    font-size: 1.2rem;
+    display: block;
+    padding: 0.4rem 0.7rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  nav.sidebar ul li a:hover,
+  nav.sidebar ul li a:focus {
+    background-color: #5bb42c;
+    color: #e9f9be;
+    outline: none;
+  }
+
+  /* Main container */
+  main.content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1rem 3rem;
+  }
+
+  header {
+    position: relative;
+    background: linear-gradient(135deg, #3e7e06, #a6d145);
+    color: white;
+    padding: 3.5rem 1rem 4rem;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(30, 70, 5, 0.9);
+    margin-top: 3rem;
+    margin-bottom: 2.5rem;
+  }
+
+  /* Animated glowing blurred shapes behind header text */
+  header::before,
+  header::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(140px);
+    opacity: 0.45;
+    animation: pulseGlow 8s ease-in-out infinite alternate;
+    z-index: 0;
+  }
+
+  header::before {
+    width: 270px;
+    height: 270px;
+    background: #a3d656;
+    top: 5px;
+    left: 70px;
+  }
+
+  header::after {
+    width: 230px;
+    height: 230px;
+    background: #e9f59a;
+    bottom: 15px;
+    right: 70px;
+    animation-delay: 4s;
+  }
+
+  @keyframes pulseGlow {
+    0% {
+      opacity: 0.45;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0.8;
+      transform: scale(1.15);
+    }
+  }
+
+  header h1 {
+    font-size: 3.7rem;
+    margin: 0 0 0.3rem;
+    letter-spacing: 2.8px;
+    text-shadow:
+      3px 3px 7px rgba(7, 65, 0, 0.9),
+      0 0 14px #c6e57b;
+    position: relative;
+    z-index: 1;
+  }
+
+  header p {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+    color: #dff3ad;
+    text-shadow: 0 0 10px #dff3ad;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero {
+    position: relative;
+    background: url('https://images.unsplash.com/photo-1559561853-6dbec4fec2e6?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(39, 78, 19, 0.7);
+    margin-bottom: 3rem;
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(33, 60, 10, 0.7);
+  }
+
+  .hero-text {
+    position: relative;
+    color: #eeffbb;
+    font-size: 2.9rem;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: 4px 4px 10px rgba(0,0,0,0.85);
+    max-width: 90%;
+    z-index: 1;
+    line-height: 1.2;
+  }
+
+  section {
+    margin-bottom: 3.5rem;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1.8rem;
+    color: #b5d37b;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  }
+
+  .about {
+    font-size: 1.3rem;
+    color: #d9e8b6;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .services {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+
+  .service-card {
+    background: rgba(255 255 255 / 0.95);
+    color: #2c4a0f;
+    flex: 1 1 250px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(39, 78, 19, 0.3);
+    padding: 2rem 1.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+  }
+
+  .service-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 18px 40px rgba(39, 78, 19, 0.5);
+  }
+
+  .service-card img {
+    max-width: 90px;
+    margin-bottom: 1.3rem;
+  }
+
+  .service-card h3 {
+    color: #2c4a0f;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  /* Products Section */
+  .products {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    justify-content: center;
+  }
+
+  .product-card {
+    background: rgba(255 255 255 / 0.95);
+    color: #2c4a0f;
+    flex: 1 1 240px;
+    border-radius: 18px;
+    box-shadow: 0 8px 28px rgba(39, 78, 19, 0.3);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    cursor: default;
+  }
+
+  .product-card:hover {
+    transform: translateY(-14px);
+    box-shadow: 0 20px 48px rgba(39, 78, 19, 0.55);
+  }
+
+  .product-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+
+  .product-card h4 {
+    margin: 1.2rem 0 0.7rem;
+    color: #3a5f0b;
+    font-size: 1.4rem;
+  }
+
+  .product-card p {
+    padding: 0 1rem 1.2rem;
+    color: #4b6526;
+    font-size: 1.05rem;
+  }
+
+  .contact {
+    background: rgba(232, 240, 216, 0.95);
+    padding: 2.5rem 1.2rem;
+    border-radius: 15px;
+    box-shadow: inset 0 0 18px #c4d69f;
+    max-width: 700px;
+    margin: 0 auto 3rem auto;
+    text-align: center;
+    color: #2c4a0f;
+  }
+
+  .contact h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.9rem;
+    color: #36540f;
+  }
+
+  .contact p {
+    font-size: 1.15rem;
+    margin: 0.5rem 0;
+  }
+
+  /* Contact Form */
+  form.contact-form {
+    max-width: 480px;
+    margin: 1.5rem auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  form.contact-form label {
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    display: block;
+    color: #3a5f0b;
+  }
+
+  form.contact-form input,
+  form.contact-form textarea {
+    padding: 0.7rem 0.9rem;
+    border: 2px solid #8bbb3c;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Cairo', sans-serif;
+    resize: vertical;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  form.contact-form input:focus,
+  form.contact-form textarea:focus {
+    outline: none;
+    border-color: #4a7519;
+    box-shadow: 0 0 8px #a3d24f;
+  }
+
+  form.contact-form button {
+    background: #3b7a0b;
+    color: #d6f5b0;
+    border: none;
+    font-weight: 700;
+    font-size: 1.15rem;
+    padding: 0.7rem;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(39, 78, 19, 0.85);
+    transition: background-color 0.3s ease;
+  }
+
+  form.contact-form button:hover,
+  form.contact-form button:focus {
+    background: #2e5d06;
+    outline: none;
+  }
+
+  .form-message {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #3a5f0b;
+  }
+
+  /* Embedded map */
+  .map-container {
+    max-width: 700px;
+    margin: 1rem auto 3rem;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(39, 78, 19, 0.5);
+  }
+
+  .map-container iframe {
+    width: 100%;
+    height: 320px;
+    border: 0;
+    filter: drop-shadow(0 0 6px rgba(30,70,5,0.8));
+  }
+
+  footer {
+    text-align: center;
+    padding: 1.2rem;
+    font-size: 0.95rem;
+    color: #b0c886;
+    background: rgba(55,92,12,0.8);
+    box-shadow: inset 0 2px 10px rgba(152,204,37,0.5);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    #menu-toggle {
+      top: 0.8rem;
+      right: 0.8rem;
+    }
+    nav.sidebar {
+      width: 200px;
+      background: rgba(39, 78, 19, 0.96);
+    }
+    main.content {
+      max-width: 100%;
+      padding-bottom: 5rem;
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 600px) {
+    header h1 {
+      font-size: 2.8rem;
+    }
+    .hero-text {
+      font-size: 1.9rem;
+    }
+    .service-card, .product-card {
+      flex: 1 1 100%;
+    }
+    form.contact-form {
+      max-width: 100%;
+    }
+    .map-container iframe {
+      height: 240px;
+    }
+  }
+</style>
+</head>
+<body>
+<button id="menu-toggle" aria-label="فتح وإغلاق القائمة">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<nav class="sidebar" aria-label="القائمة الجانبية">
+  <h2>القائمة</h2>
+  <ul>
+    <li><a href="#about-title" tabindex="0">من نحن</a></li>
+    <li><a href="#services-title" tabindex="0">خدماتنا</a></li>
+    <li><a href="#products-title" tabindex="0">منتجاتنا</a></li>
+    <li><a href="#contact-title" tabindex="0">تواصل معنا</a></li>
+  </ul>
+</nav>
+
+<main class="content" tabindex="-1">
+<header>
+  <h1>اغرو فليدا</h1>
+  <p>صيدلية زراعية - ادلب الدانا</p>
+</header>
+
+<div class="hero">
+  <div class="hero-text" aria-label="Agricultural pharmacy welcoming text">
+    خبراءك في العناية الزراعية والمنتجات البيئية الصحية
+  </div>
+</div>
+
+<section aria-labelledby="about-title" class="animate-section">
+  <h2 id="about-title">من نحن</h2>
+  <p class="about">
+    اغرو فليدا هي الصيدلية الزراعية الرائدة في ادلب الدانا، نقدم حلولاً متكاملة في مجال العناية بالمزارع والنباتات مع التركيز على المنتجات الامنة والفعالة لتعزيز جودة المحاصيل وضمان صحة البيئة الزراعية.
+  </p>
+</section>
+
+<section aria-labelledby="services-title" class="animate-section">
+  <h2 id="services-title">خدماتنا</h2>
+  <div class="services">
+    <div class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/1057/1057246.png" alt="مبيدات الآفات">
+      <h3>مبيدات الآفات</h3>
+      <p>نوفر مجموعة متنوعة من المبيدات الزراعية عالية الجودة لمكافحة الآفات بكفاءة.</p>
+    </div>
+    <div class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/616/616549.png" alt="البذور المختارة">
+      <h3>البذور المختارة</h3>
+      <p>أحدث بذور محاصيل مختارة بعناية لتحقيق أفضل إنتاجية وجودة.</p>
+    </div>
+    <div class="service-card">
+      <img src="https://cdn-icons-png.flaticon.com/512/2920/2920336.png" alt="أسمدة زراعية">
+      <h3>أسمدة زراعية</h3>
+      <p>أسمدة طبيعية وكيماوية متوازنة تدعم نمو نباتاتك بشكل صحي.</p>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="products-title" class="animate-section">
+  <h2 id="products-title">منتجاتنا</h2>
+  <div class="products">
+    <article class="product-card" tabindex="0" aria-label="منتج مبيدات طبيعية">
+      <img src="https://cdn.pixabay.com/photo/2016/06/22/16/32/pesticide-1473297_1280.jpg" alt="زجاجة مبيدات طبيعية" />
+      <h4>مبيدات طبيعية</h4>
+      <p>منتجات مبيدات عضوية صديقة للبيئة تضمن حماية أفضل لمحاصيلك.</p>
+    </article>
+    <article class="product-card" tabindex="0" aria-label="منتج بذور قمح متميزة">
+      <img src="https://cdn.pixabay.com/photo/2017/05/16/07/55/wheat-2318406_1280.jpg" alt="حزمة بذور قمح" />
+      <h4>بذور قمح متميزة</h4>
+      <p>بذور قمح تم اختيارها بعناية تضمن إنتاجية عالية وجودة ممتازة.</p>
+    </article>
+    <article class="product-card" tabindex="0" aria-label="منتج سماد عضوي">
+      <img src="https://cdn.pixabay.com/photo/2017/06/09/19/24/compost-2381235_1280.jpg" alt="سماد عضوي" />
+      <h4>سماد عضوي</h4>
+      <p>سماد طبيعي غني بالعناصر الغذائية لتعزيز نمو النباتات بشكل صحي.</p>
+    </article>
+    <article class="product-card" tabindex="0" aria-label="منتج رشاش زراعي">
+      <img src="https://cdn.pixabay.com/photo/2016/11/18/16/26/sprayer-1837937_1280.jpg" alt="رشاش زراعي" />
+      <h4>رشاش زراعي</h4>
+      <p>أدوات رش عالية الأداء لمساعدتك في توزيع المبيدات والأسمدة بدقة.</p>
+    </article>
+  </div>
+</section>
+
+<section aria-labelledby="contact-title" class="contact animate-section">
+  <h3 id="contact-title">تواصل معنا</h3>
+  <p>جلال ابوراس</p>
+  <p>نضال ابوراس</p>
+  <p>العنوان: ادلب - الدانا</p>
+  <p>الاتصال: +963 999 123 456</p>
+  <p>البريد الإلكتروني: info@agrofleda.com</p>
+
+  <form class="contact-form" novalidate>
+    <label for="name">الاسم:</label>
+    <input type="text" id="name" name="name" required placeholder="أدخل اسمك" />
+
+    <label for="email">البريد الإلكتروني:</label>
+    <input type="email" id="email" name="email" required placeholder="example@mail.com" />
+
+    <label for="message">الرسالة:</label>
+    <textarea id="message" name="message" rows="4" required placeholder="اكتب رسالتك هنا..."></textarea>
+
+    <button type="submit" aria-label="إرسال الرسالة">إرسال</button>
+    <div class="form-message" role="alert" aria-live="polite"></div>
+  </form>
+
+  <div class="map-container" aria-label="خريطة موقع اغرو فليدا في ادلب الدانا">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d412889.6727845984!2d36.462316840130364!3d35.93903835980885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1527f0bf6e786211%3A0xf145a342b5a155a7!2z2YXYudmJ2KfYp9iq2YrZhiDYp9mE2YXYtdmG2Ykg2YbYsdmK2KfZhNmK2LHYqiAtINmB2YTYtdmE2KfZhdiMINin2YTYr9mK2YMg2K7ZhNmK2Lkg2KfZhNi52KjZitin2LHZitip!5e0!3m2!1sar!2ssy!4v1700843283634!5m2!1sar!2ssy" 
+      allowfullscreen="" loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+</section>
+
+<footer>
+  &copy; 2024 اغرو فليدا - جميع الحقوق محفوظة
+</footer>
+
+<script>
+  // Sidebar toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  const sidebar = document.querySelector('nav.sidebar');
+
+  menuToggle.addEventListener('click', () => {
+    const isOpen = sidebar.classList.toggle('open');
+    menuToggle.classList.toggle('active', isOpen);
+
+    if(isOpen){
+      sidebar.querySelector('a').focus();
+    } else {
+      menuToggle.focus();
+    }
+  });
+
+  // Close sidebar when clicking a nav link
+  sidebar.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      sidebar.classList.remove('open');
+      menuToggle.classList.remove('active');
+      menuToggle.focus();
+    });
+  });
+
+  // Close sidebar when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+      sidebar.classList.remove('open');
+      menuToggle.classList.remove('active');
+    }
+  });
+
+  // Animate sections on scroll
+  const animateSections = document.querySelectorAll('.animate-section');
+  function revealOnScroll() {
+    const triggerBottom = window.innerHeight * 0.85;
+
+    animateSections.forEach(section => {
+      const sectionTop = section.getBoundingClientRect().top;
+      if(sectionTop < triggerBottom) {
+        section.classList.add('visible');
+      }
+    });
+  }
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll);
+
+  // Contact form submission simulation
+  const form = document.querySelector('form.contact-form');
+  const messageDiv = document.querySelector('.form-message');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Form validation simple check
+    if(!form.checkValidity()) {
+      messageDiv.textContent = 'يرجى تعبئة جميع الحقول بشكل صحيح.';
+      messageDiv.style.color = 'crimson';
+      return;
+    }
+
+    // Simulated sending
+    messageDiv.style.color = '#3a5f0b';
+    messageDiv.textContent = 'جاري إرسال الرسالة...';
+
+    setTimeout(() => {
+      messageDiv.textContent = 'شكرًا لتواصلك معنا! سنرد عليك قريبًا.';
+      form.reset();
+    }, 2000);
+  });
+</script>
+</body>
+</html>
+
