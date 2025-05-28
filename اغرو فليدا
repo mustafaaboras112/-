@@ -14,19 +14,16 @@
   body {
     margin: 0;
     font-family: 'Cairo', sans-serif;
-    background: linear-gradient(135deg, #1b3a0e, #61964b);
-    color: #f0f5e9;
+    background: #f5f9f4;
+    color: #2c3e20;
     line-height: 1.6;
     direction: rtl;
     scroll-behavior: smooth;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
   }
 
   a {
     text-decoration: none;
-    color: #f0f5e9;
+    color: #2c3e20;
   }
 
   /* Hamburger menu button */
@@ -34,7 +31,7 @@
     position: fixed;
     top: 1rem;
     right: 1rem;
-    background: rgba(58, 108, 11, 0.85);
+    background: #3a6c0b;
     border: none;
     border-radius: 6px;
     width: 42px;
@@ -45,13 +42,13 @@
     flex-direction: column;
     justify-content: space-around;
     padding: 8px;
-    box-shadow: 0 3px 8px rgba(38, 59, 12, 0.8);
+    box-shadow: 0 3px 8px rgba(38, 59, 12, 0.6);
     transition: background-color 0.3s ease;
   }
 
   #menu-toggle:hover,
   #menu-toggle:focus {
-    background: #8cbf39;
+    background: #5c9717;
     outline: none;
   }
 
@@ -82,10 +79,10 @@
     bottom: 0;
     right: 0;
     width: 240px;
-    background: rgba(39, 78, 19, 0.95);
-    color: #d4f0b1;
+    background: #274e13;
+    color: white;
     padding-top: 3.5rem;
-    box-shadow: -5px 0px 18px rgba(0,0,0,0.5);
+    box-shadow: -5px 0px 15px rgba(0,0,0,0.3);
     transform: translateX(100%);
     transition: transform 0.3s ease;
     z-index: 150;
@@ -102,7 +99,7 @@
     margin-bottom: 2rem;
     letter-spacing: 1.5px;
     user-select: none;
-    text-shadow: 0 0 6px rgba(221,247,170,0.8);
+    text-shadow: 0 0 4px rgba(221,247,170,0.65);
   }
 
   nav.sidebar ul {
@@ -125,7 +122,7 @@
 
   nav.sidebar ul li a:hover,
   nav.sidebar ul li a:focus {
-    background-color: #5bb42c;
+    background-color: #3a721b;
     color: #e9f9be;
     outline: none;
   }
@@ -139,13 +136,13 @@
 
   header {
     position: relative;
-    background: linear-gradient(135deg, #3e7e06, #a6d145);
+    background: linear-gradient(135deg, #296515, #7fc04e);
     color: white;
     padding: 3.5rem 1rem 4rem;
     text-align: center;
     overflow: hidden;
     border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(30, 70, 5, 0.9);
+    box-shadow: 0 12px 30px rgba(38, 91, 10, 0.8);
     margin-top: 3rem;
     margin-bottom: 2.5rem;
   }
@@ -156,71 +153,71 @@
     content: "";
     position: absolute;
     border-radius: 50%;
-    filter: blur(140px);
-    opacity: 0.45;
+    filter: blur(150px);
+    opacity: 0.4;
     animation: pulseGlow 8s ease-in-out infinite alternate;
     z-index: 0;
   }
 
   header::before {
-    width: 270px;
-    height: 270px;
-    background: #a3d656;
-    top: 5px;
-    left: 70px;
+    width: 260px;
+    height: 260px;
+    background: #a2d659;
+    top: 10px;
+    left: 60px;
   }
 
   header::after {
-    width: 230px;
-    height: 230px;
-    background: #e9f59a;
-    bottom: 15px;
+    width: 220px;
+    height: 220px;
+    background: #e7f397;
+    bottom: 20px;
     right: 70px;
     animation-delay: 4s;
   }
 
   @keyframes pulseGlow {
     0% {
-      opacity: 0.45;
+      opacity: 0.4;
       transform: scale(1);
     }
     100% {
-      opacity: 0.8;
+      opacity: 0.7;
       transform: scale(1.15);
     }
   }
 
   header h1 {
-    font-size: 3.7rem;
+    font-size: 3.5rem;
     margin: 0 0 0.3rem;
-    letter-spacing: 2.8px;
+    letter-spacing: 2.5px;
     text-shadow:
-      3px 3px 7px rgba(7, 65, 0, 0.9),
-      0 0 14px #c6e57b;
+      2px 2px 6px rgba(7, 54, 0, 0.7),
+      0 0 10px #a5db56;
     position: relative;
     z-index: 1;
   }
 
   header p {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    letter-spacing: 1.4px;
-    color: #dff3ad;
-    text-shadow: 0 0 10px #dff3ad;
+    letter-spacing: 1.2px;
+    color: #d6f5b0;
+    text-shadow: 0 0 8px #d6f5b0;
     position: relative;
     z-index: 1;
   }
 
   .hero {
     position: relative;
-    background: url('https://images.unsplash.com/photo-1559561853-6dbec4fec2e6?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+    background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
     height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(39, 78, 19, 0.7);
+    box-shadow: 0 8px 25px rgba(39, 78, 19, 0.5);
     margin-bottom: 3rem;
   }
 
@@ -228,19 +225,18 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(33, 60, 10, 0.7);
+    background: rgba(39, 78, 19, 0.5);
   }
 
   .hero-text {
     position: relative;
-    color: #eeffbb;
-    font-size: 2.9rem;
+    color: #d6f5b0;
+    font-size: 2.75rem;
     font-weight: 700;
     text-align: center;
-    text-shadow: 4px 4px 10px rgba(0,0,0,0.85);
+    text-shadow: 3px 3px 7px rgba(0,0,0,0.8);
     max-width: 90%;
     z-index: 1;
-    line-height: 1.2;
   }
 
   section {
@@ -259,13 +255,13 @@
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 1.8rem;
-    color: #b5d37b;
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+    color: #3a5f0b;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.2);
   }
 
   .about {
-    font-size: 1.3rem;
-    color: #d9e8b6;
+    font-size: 1.25rem;
+    color: #46632e;
     text-align: center;
     max-width: 700px;
     margin: 0 auto;
@@ -279,19 +275,18 @@
   }
 
   .service-card {
-    background: rgba(255 255 255 / 0.95);
-    color: #2c4a0f;
+    background: white;
     flex: 1 1 250px;
     border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(39, 78, 19, 0.3);
+    box-shadow: 0 6px 15px rgba(39, 78, 19, 0.2);
     padding: 2rem 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
     text-align: center;
   }
 
   .service-card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 18px 40px rgba(39, 78, 19, 0.5);
+    transform: translateY(-10px);
+    box-shadow: 0 12px 28px rgba(39, 78, 19, 0.4);
   }
 
   .service-card img {
@@ -302,7 +297,7 @@
   .service-card h3 {
     color: #2c4a0f;
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   /* Products Section */
@@ -314,20 +309,19 @@
   }
 
   .product-card {
-    background: rgba(255 255 255 / 0.95);
-    color: #2c4a0f;
+    background: white;
     flex: 1 1 240px;
     border-radius: 18px;
-    box-shadow: 0 8px 28px rgba(39, 78, 19, 0.3);
+    box-shadow: 0 8px 20px rgba(39, 78, 19, 0.25);
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease;
     text-align: center;
     cursor: default;
   }
 
   .product-card:hover {
-    transform: translateY(-14px);
-    box-shadow: 0 20px 48px rgba(39, 78, 19, 0.55);
+    transform: translateY(-12px);
+    box-shadow: 0 14px 38px rgba(39, 78, 19, 0.4);
   }
 
   .product-card img {
@@ -339,7 +333,7 @@
   .product-card h4 {
     margin: 1.2rem 0 0.7rem;
     color: #3a5f0b;
-    font-size: 1.4rem;
+    font-size: 1.35rem;
   }
 
   .product-card p {
@@ -349,24 +343,24 @@
   }
 
   .contact {
-    background: rgba(232, 240, 216, 0.95);
+    background: #e8f0d8;
     padding: 2.5rem 1.2rem;
     border-radius: 15px;
-    box-shadow: inset 0 0 18px #c4d69f;
+    box-shadow: inset 0 0 15px #c4d69f;
     max-width: 700px;
     margin: 0 auto 3rem auto;
     text-align: center;
-    color: #2c4a0f;
   }
 
   .contact h3 {
     margin-bottom: 1.5rem;
-    font-size: 1.9rem;
+    font-size: 1.85rem;
     color: #36540f;
   }
 
   .contact p {
     font-size: 1.15rem;
+    color: #4b6526;
     margin: 0.5rem 0;
   }
 
@@ -381,31 +375,30 @@
 
   form.contact-form label {
     font-weight: 700;
+    color: #3a5f0b;
     margin-bottom: 0.3rem;
     display: block;
-    color: #3a5f0b;
   }
 
   form.contact-form input,
   form.contact-form textarea {
     padding: 0.7rem 0.9rem;
-    border: 2px solid #8bbb3c;
+    border: 2px solid #a4bf61;
     border-radius: 8px;
     font-size: 1rem;
     font-family: 'Cairo', sans-serif;
     resize: vertical;
-    transition: border-color 0.3s ease, box-shadow 0.3s ease;
   }
 
   form.contact-form input:focus,
   form.contact-form textarea:focus {
     outline: none;
     border-color: #4a7519;
-    box-shadow: 0 0 8px #a3d24f;
+    box-shadow: 0 0 5px #6d9131;
   }
 
   form.contact-form button {
-    background: #3b7a0b;
+    background: #3a721b;
     color: #d6f5b0;
     border: none;
     font-weight: 700;
@@ -413,21 +406,21 @@
     padding: 0.7rem;
     border-radius: 10px;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(39, 78, 19, 0.85);
+    box-shadow: 0 4px 8px rgba(39, 78, 19, 0.7);
     transition: background-color 0.3s ease;
   }
 
   form.contact-form button:hover,
   form.contact-form button:focus {
-    background: #2e5d06;
+    background: #255207;
     outline: none;
   }
 
   .form-message {
     margin-top: 1rem;
     font-size: 1.1rem;
-    font-weight: 700;
     color: #3a5f0b;
+    font-weight: 700;
   }
 
   /* Embedded map */
@@ -436,23 +429,21 @@
     margin: 1rem auto 3rem;
     border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(39, 78, 19, 0.5);
+    box-shadow: 0 5px 20px rgba(39, 78, 19, 0.3);
   }
 
   .map-container iframe {
     width: 100%;
     height: 320px;
     border: 0;
-    filter: drop-shadow(0 0 6px rgba(30,70,5,0.8));
   }
 
   footer {
     text-align: center;
     padding: 1.2rem;
     font-size: 0.95rem;
-    color: #b0c886;
-    background: rgba(55,92,12,0.8);
-    box-shadow: inset 0 2px 10px rgba(152,204,37,0.5);
+    color: #829c5d;
+    background: #dbe9b7;
   }
 
   /* Responsive */
@@ -463,7 +454,6 @@
     }
     nav.sidebar {
       width: 200px;
-      background: rgba(39, 78, 19, 0.96);
     }
     main.content {
       max-width: 100%;
@@ -536,6 +526,7 @@
       <p>نوفر مجموعة متنوعة من المبيدات الزراعية عالية الجودة لمكافحة الآفات بكفاءة.</p>
     </div>
     <div class="service-card">
+      <!-- Changed icon for البذور المختارة -->
       <img src="https://cdn-icons-png.flaticon.com/512/616/616549.png" alt="البذور المختارة">
       <h3>البذور المختارة</h3>
       <p>أحدث بذور محاصيل مختارة بعناية لتحقيق أفضل إنتاجية وجودة.</p>
@@ -552,22 +543,22 @@
   <h2 id="products-title">منتجاتنا</h2>
   <div class="products">
     <article class="product-card" tabindex="0" aria-label="منتج مبيدات طبيعية">
-      <img src="https://cdn.pixabay.com/photo/2016/06/22/16/32/pesticide-1473297_1280.jpg" alt="زجاجة مبيدات طبيعية" />
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="زجاجة مبيدات طبيعية" />
       <h4>مبيدات طبيعية</h4>
       <p>منتجات مبيدات عضوية صديقة للبيئة تضمن حماية أفضل لمحاصيلك.</p>
     </article>
     <article class="product-card" tabindex="0" aria-label="منتج بذور قمح متميزة">
-      <img src="https://cdn.pixabay.com/photo/2017/05/16/07/55/wheat-2318406_1280.jpg" alt="حزمة بذور قمح" />
+      <img src="https://images.unsplash.com/photo-1524594157364-3f3482e6e0aa?auto=format&fit=crop&w=400&q=80" alt="حزمة بذور قمح" />
       <h4>بذور قمح متميزة</h4>
       <p>بذور قمح تم اختيارها بعناية تضمن إنتاجية عالية وجودة ممتازة.</p>
     </article>
     <article class="product-card" tabindex="0" aria-label="منتج سماد عضوي">
-      <img src="https://cdn.pixabay.com/photo/2017/06/09/19/24/compost-2381235_1280.jpg" alt="سماد عضوي" />
+      <img src="https://images.unsplash.com/photo-1516715094482-69183ebb0a5d?auto=format&fit=crop&w=400&q=80" alt="سماد عضوي" />
       <h4>سماد عضوي</h4>
       <p>سماد طبيعي غني بالعناصر الغذائية لتعزيز نمو النباتات بشكل صحي.</p>
     </article>
     <article class="product-card" tabindex="0" aria-label="منتج رشاش زراعي">
-      <img src="https://cdn.pixabay.com/photo/2016/11/18/16/26/sprayer-1837937_1280.jpg" alt="رشاش زراعي" />
+      <img src="https://images.unsplash.com/photo-1584997362145-d95e3fdd11de?auto=format&fit=crop&w=400&q=80" alt="رشاش زراعي" />
       <h4>رشاش زراعي</h4>
       <p>أدوات رش عالية الأداء لمساعدتك في توزيع المبيدات والأسمدة بدقة.</p>
     </article>
@@ -576,8 +567,7 @@
 
 <section aria-labelledby="contact-title" class="contact animate-section">
   <h3 id="contact-title">تواصل معنا</h3>
-  <p>جلال ابوراس</p>
-  <p>نضال ابوراس</p>
+
   <p>العنوان: ادلب - الدانا</p>
   <p>الاتصال: +963 999 123 456</p>
   <p>البريد الإلكتروني: info@agrofleda.com</p>
